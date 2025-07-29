@@ -61,7 +61,12 @@ document.getElementById("play_btn").addEventListener("click", (event) => {
 });
 
 document.getElementById("random_btn").addEventListener("click", (event) => {
-  // TODO: Randomize the board and paint
+   for (let row = 0; row < height; row++) {
+    for (let col = 0; col < width; col++) {
+      gol.setCell(Math.random() > 0.5 ? 1 : 0, row, col);
+    }
+  }
+  paint();
 });
 
 document.getElementById("clear_btn").addEventListener("click", (event) => {
