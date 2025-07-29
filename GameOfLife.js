@@ -61,7 +61,28 @@ class GameOfLife {
    */
 
   livingNeighbors(row, col) {
-    // TODO: Return the count of living neighbors.
+    let count = 0;
+
+    for (let i = -1; i <= 1; i++) {
+      for (let j = -1; j <= 1; j++) {
+        if (i === 0 && j === 0) continue;
+
+        let neighborRow = row + 1;
+        let neighborCol = col + 1;
+
+        if (
+          neighborRow >= 0 &&
+          neighborRow < this.height &&
+          neighborCol >= 0 &&
+          neighborCol < this.width
+        ) {
+          if (this.board[neighborRow][neighborCol] = 1) {
+            count++;
+          }
+        }
+      }
+    }
+    return count;
   }
 
   tick() {
