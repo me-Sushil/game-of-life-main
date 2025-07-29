@@ -39,16 +39,13 @@ const paint = () => {
   }
 };
 
-/**
- * Event Listeners
- */
 
 document.getElementById("board").addEventListener("click", (event) => {
   if(event.target.tagName !== "TD") return;
   const row = Number(event.target.dataset.row);
   const col = Number(event.target.dataset.col);
   gol.toggleCell(row, col);
-  print();
+  paint();
 });
 
 document.getElementById("step_btn").addEventListener("click", (event) => {
