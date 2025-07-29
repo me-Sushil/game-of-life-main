@@ -61,7 +61,7 @@ document.getElementById("play_btn").addEventListener("click", (event) => {
 });
 
 document.getElementById("random_btn").addEventListener("click", (event) => {
-   for (let row = 0; row < height; row++) {
+  for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
       gol.setCell(Math.random() > 0.5 ? 1 : 0, row, col);
     }
@@ -70,7 +70,7 @@ document.getElementById("random_btn").addEventListener("click", (event) => {
 });
 
 document.getElementById("clear_btn").addEventListener("click", (event) => {
-   for (let row = 0; row < height; row++) {
+  for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
       gol.setCell(0, row, col);
     }
@@ -78,20 +78,8 @@ document.getElementById("clear_btn").addEventListener("click", (event) => {
   paint();
 });
 
-
 // // --- Pause ---
 // document.getElementById("pause_btn").addEventListener("click", () => {
 //   clearInterval(interval);
 //   interval = null;
-// });
-
-
-// // --- Clear ---
-// document.getElementById("clear_btn").addEventListener("click", () => {
-//   for (let row = 0; row < height; row++) {
-//     for (let col = 0; col < width; col++) {
-//       gol.setCell(0, row, col);
-//     }
-//   }
-//   paint();
 // });
