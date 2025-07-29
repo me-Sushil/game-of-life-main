@@ -70,7 +70,12 @@ document.getElementById("random_btn").addEventListener("click", (event) => {
 });
 
 document.getElementById("clear_btn").addEventListener("click", (event) => {
-  // TODO: Clear the board and paint
+   for (let row = 0; row < height; row++) {
+    for (let col = 0; col < width; col++) {
+      gol.setCell(0, row, col);
+    }
+  }
+  paint();
 });
 
 
@@ -80,15 +85,6 @@ document.getElementById("clear_btn").addEventListener("click", (event) => {
 //   interval = null;
 // });
 
-// // --- Reset Random ---
-// document.getElementById("random_btn").addEventListener("click", () => {
-//   for (let row = 0; row < height; row++) {
-//     for (let col = 0; col < width; col++) {
-//       gol.setCell(Math.random() > 0.5 ? 1 : 0, row, col);
-//     }
-//   }
-//   paint();
-// });
 
 // // --- Clear ---
 // document.getElementById("clear_btn").addEventListener("click", () => {
