@@ -49,10 +49,12 @@ document.getElementById("board").addEventListener("click", (event) => {
 });
 
 document.getElementById("step_btn").addEventListener("click", (event) => {
-  // TODO: Do one gol tick and paint
+  gol.tick();
+  paint();
 });
 
 document.getElementById("play_btn").addEventListener("click", (event) => {
+  
   // TODO: Start playing by calling `tick` and paint
   // repeatedly every fixed time interval.
   // HINT:
@@ -67,12 +69,6 @@ document.getElementById("clear_btn").addEventListener("click", (event) => {
   // TODO: Clear the board and paint
 });
 
-
-// // --- Step Button ---
-// document.getElementById("step_btn").addEventListener("click", () => {
-//   gol.tick();
-//   paint();
-// });
 
 // // --- Auto Play ---
 // let interval = null;
