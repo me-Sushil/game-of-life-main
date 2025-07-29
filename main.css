@@ -1,10 +1,12 @@
 body {
   font-family: Futura, Helvetica, Arial, sans-serif;
   color: #444;
+  background-color: black;
 }
 
 h1 {
   font-weight: normal;
+  color: red;
 }
 
 #container {
@@ -18,13 +20,14 @@ h1 {
 }
 
 #board td{
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
+  border: 1px solid #d9d3d3a8;
   width: 18px;
   height: 18px;
 }
 
 td.alive {
-  background-color: #8CC8DD;
+  background-color: #00bbff;
 }
 
 #control_panel {
@@ -47,4 +50,7 @@ td.alive {
 
 .button:focus {
   outline: dashed 1px #2ba6cb;
+}
+p{
+  color: beige;
 }
