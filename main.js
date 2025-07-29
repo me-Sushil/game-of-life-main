@@ -51,6 +51,7 @@ document.getElementById("step_btn").addEventListener("click", (event) => {
   paint();
 });
 
+let interval = null;
 document.getElementById("play_btn").addEventListener("click", (event) => {
   if (interval) return; // prevent multiple intervals
   interval = setInterval(() => {
@@ -67,15 +68,6 @@ document.getElementById("clear_btn").addEventListener("click", (event) => {
   // TODO: Clear the board and paint
 });
 
-// // --- Auto Play ---
-// let interval = null;
-// document.getElementById("play_btn").addEventListener("click", () => {
-//   if (interval) return; // prevent multiple intervals
-//   interval = setInterval(() => {
-//     gol.tick();
-//     paint();
-//   }, 200); // adjust speed here
-// });
 
 // // --- Pause ---
 // document.getElementById("pause_btn").addEventListener("click", () => {
