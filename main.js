@@ -52,12 +52,11 @@ document.getElementById("play_btn").addEventListener("click", (event) => {
       paint();
     }, 500);
     isPlaying = true;
-    {
+   }else {
       clearInterval(gameInterval)
       isPlaying = false;
     }
-  }
-});
+  });
 
 document.getElementById("random_btn").addEventListener("click", (event) => {
   for (let row = 0; row < height; row++) {
