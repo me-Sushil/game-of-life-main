@@ -1,5 +1,5 @@
-const width = 25;
-const height = 20; // width and height dimensions of the board
+const width = 47;
+const height = 18; // width and height dimensions of the board
 
 /**
  * Create a Game of Life instance
