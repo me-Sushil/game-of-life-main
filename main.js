@@ -25,7 +25,6 @@ for (let h = 0; h < height; h++) {
 }
 document.getElementById("board").append(table);
 
-
 const paint = () => {
   for (let i = 0; i < tds.length; i++) {
     const td = tds[i];
@@ -39,9 +38,8 @@ const paint = () => {
   }
 };
 
-
 document.getElementById("board").addEventListener("click", (event) => {
-  if(event.target.tagName !== "TD") return;
+  if (event.target.tagName !== "TD") return;
   const row = Number(event.target.dataset.row);
   const col = Number(event.target.dataset.col);
   gol.toggleCell(row, col);
@@ -54,11 +52,11 @@ document.getElementById("step_btn").addEventListener("click", (event) => {
 });
 
 document.getElementById("play_btn").addEventListener("click", (event) => {
-  
-  // TODO: Start playing by calling `tick` and paint
-  // repeatedly every fixed time interval.
-  // HINT:
-  // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
+  if (interval) return; // prevent multiple intervals
+  interval = setInterval(() => {
+    gol.tick();
+    paint();
+  }, 200); // adjust speed here
 });
 
 document.getElementById("random_btn").addEventListener("click", (event) => {
@@ -68,7 +66,6 @@ document.getElementById("random_btn").addEventListener("click", (event) => {
 document.getElementById("clear_btn").addEventListener("click", (event) => {
   // TODO: Clear the board and paint
 });
-
 
 // // --- Auto Play ---
 // let interval = null;
