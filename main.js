@@ -2,20 +2,13 @@ const width = 47;
 const height = 18;
 const gol = new GameOfLife(width, height);
 
-// Actual table cells
 const tds = [];
 
-// <table> element
 const table = document.createElement("tbody");
-// build a table row <tr>
 for (let h = 0; h < height; h++) {
   const tr = document.createElement("tr");
-  // build a table column <td>
   for (let w = 0; w < width; w++) {
     const td = document.createElement("td");
-    // We'll put the coordinates on the cell
-    // Element itself (using dataset),
-    // letting us fetch it in a click listener later.
     td.dataset.row = h;
     td.dataset.col = w;
     tds.push(td);
@@ -42,7 +35,7 @@ document.getElementById("board").addEventListener("click", (event) => {
   if (event.target.tagName !== "TD") return;
   const row = Number(event.target.dataset.row);
   const col = Number(event.target.dataset.col);
-  gol.toggleCell(row, col);
+  gol.board[row][col] = gol.board[row][col] === 1 ? 0 : 1;
   paint();
 });
 
@@ -51,13 +44,19 @@ document.getElementById("step_btn").addEventListener("click", (event) => {
   paint();
 });
 
-let interval = null;
+let isPlaying = false;
 document.getElementById("play_btn").addEventListener("click", (event) => {
-  if (interval) return; // prevent multiple intervals
-  interval = setInterval(() => {
-    gol.tick();
-    paint();
-  }, 200); // adjust speed here
+  if (!isPlaying) {
+    gameInterval = setInterval(() => {
+      gol.tick();
+      paint();
+    }, 500);
+    isPlaying = true;
+    {
+      clearInterval(gameInterval)
+      isPlaying = false;
+    }
+  }
 });
 
 document.getElementById("random_btn").addEventListener("click", (event) => {
@@ -78,8 +77,4 @@ document.getElementById("clear_btn").addEventListener("click", (event) => {
   paint();
 });
 
-// // --- Pause ---
-// document.getElementById("pause_btn").addEventListener("click", () => {
-//   clearInterval(interval);
-//   interval = null;
-// });
+
